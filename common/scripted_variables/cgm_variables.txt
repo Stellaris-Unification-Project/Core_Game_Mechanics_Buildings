@@ -1,0 +1,156 @@
+ ### Vanilla Building Costs
+@planet_unique_cost_1 = 150
+@planet_unique_cost_2 = 200
+@planet_unique_cost_3 = 250
+@standard_resource_cost_tier_1 = 60
+@standard_resource_cost_tier_2 = 90
+@standard_resource_cost_tier_3 = 120
+@standard_resource_cost_tier_4 = 150
+@unity_resource_building_cost_tier_1 = 100
+@unity_resource_building_cost_tier_2 = 200
+@unity_resource_building_cost_tier_3 = 350
+@unity_resource_building_cost_tier_4 = 500
+@habitat_resource_cost_1 = 200
+@habitat_resource_cost_2 = 250
+@nutrient_paste_facility_cost = 100
+@special_resource_building_cost = 150
+@empire_unique_mineral_cost_1 = 300
+@empire_unique_influence_cost_1 = 150
+@empire_unique_mineral_cost_2 = 500
+@empire_unique_influence_cost_2 = 100
+ ### CGM Tech Variables
+@tech_cost_resource_building_tier_1 = 500
+@tech_cost_resource_building_tier_2 = 1250
+@tech_cost_resource_building_tier_3 = 2500
+@tech_cost_resource_building_tier_4 = 7500
+@tech_cost_resource_building_tier_5 = 12000
+@tech_weight_resource_building_tier_1 = 100
+@tech_weight_resource_building_tier_2 = 85
+@tech_weight_resource_building_tier_3 = 70
+@tech_weight_resource_building_tier_4 = 55
+@tech_weight_resource_building_tier_5 = 40
+ ### Building Variables
+ #tile restricted resource building variables
+@tile_restricted_t1_0_output = 1  #+tile resource  = 2
+@tile_restricted_t2_0_output = 2  #+tile resource  = 3
+@tile_restricted_t3_0_output = 3  #+tile resource  = 4
+@tile_restricted_t4_0_output = 4  #+tile resource  = 5
+@tile_restricted_t5_0_output = 5  #+tile resource  = 6
+@tile_restricted_t1_1_output = 2  #+tile resource  = 3
+@tile_restricted_t2_1_output = 3  #+tile resource  = 4
+@tile_restricted_t3_1_output = 4  #+tile resource  = 5
+@tile_restricted_t4_1_output = 5  #+tile resource  = 6
+@tile_restricted_t5_1_output = 6  #+tile resource  = 7
+@tile_restricted_t1_2_output = 3  #+tile resource  = 5
+@tile_restricted_t2_2_output = 4  #+tile resource  = 6
+@tile_restricted_t3_2_output = 5  #+tile resource  = 7
+@tile_restricted_t4_2_output = 6  #+tile resource  = 8
+@tile_restricted_t5_2_output = 7  #+tile resource  = 9
+@tile_restricted_t1_3_output = 4  #+tile resource  = 7
+@tile_restricted_t2_3_output = 5  #+tile resource  = 8
+@tile_restricted_t3_3_output = 6  #+tile resource  = 9
+@tile_restricted_t4_3_output = 7  #+tile resource  = 10
+@tile_restricted_t5_3_output = 8  #+tile resource  = 11
+@tile_restricted_t1_4_output = 6  #+tile resource  = 9
+@tile_restricted_t2_4_output = 7  #+tile resource  = 10
+@tile_restricted_t3_4_output = 8  #+tile resource  = 11
+@tile_restricted_t4_4_output = 9  #+tile resource  = 12
+@tile_restricted_t5_4_output = 10  #+tile resource  = 13
+@tile_restricted_t1_5_output = 7  #+tile resource  = 11
+@tile_restricted_t2_5_output = 8  #+tile resource  = 12
+@tile_restricted_t3_5_output = 9  #+tile resource  = 13
+@tile_restricted_t4_5_output = 10  #+tile resource  = 14
+@tile_restricted_t5_5_output = 11  #+tile resource  = 15
+@tile_restricted_t1_static_resource_add = 0.5
+@tile_restricted_t2_static_resource_add = 0.75
+@tile_restricted_t3_static_resource_add = 1
+@tile_restricted_t4_static_resource_add = 1.25
+@tile_restricted_t5_static_resource_add = 1.5
+@tile_restricted_t5_triggered_planet_modifier = 2
+@tile_restricted_t1_time = 210
+@tile_restricted_t2_time = 180
+@tile_restricted_t3_time = 180
+@tile_restricted_t4_time = 180
+@tile_restricted_t5_time = 180
+@tile_restricted_t1_cost = 30
+@tile_restricted_t2_cost = 60
+@tile_restricted_t3_cost = 90
+@tile_restricted_t4_cost = 120
+@tile_restricted_t5_cost = 150
+@tile_restricted_t1_upkeep = 0.8
+@tile_restricted_t2_upkeep = 1.2
+@tile_restricted_t3_upkeep = 1.6
+@tile_restricted_t4_upkeep = 2.0
+@tile_restricted_t5_upkeep = 2.4
+ #megastructure restricted buildings
+@megastructure_unique_t1_time = 180
+@megastructure_unique_t2_time = 180
+@megastructure_unique_t3_time = 180
+@megastructure_unique_t1_cost = 60
+@megastructure_unique_t2_cost = 120
+@megastructure_unique_t3_cost = 180
+@megastructure_unique_t1_upkeep = 1.5
+@megastructure_unique_t2_upkeep = 2.5
+@megastructure_unique_t3_upkeep = 3.5
+@megastructure_unique_output = 3
+@computational_array_output = 1
+@megastructure_unique_t1_1_adjacency_bonus = 0.5
+@megastructure_unique_t2_1_adjacency_bonus = 1
+@megastructure_unique_t3_1_adjacency_bonus = 1.5
+@megastructure_unique_t1_2_adjacency_bonus = 1
+@megastructure_unique_t2_2_adjacency_bonus = 2
+@megastructure_unique_t3_2_adjacency_bonus = 3
+@megastructure_unique_t1_3_adjacency_bonus = 1.5
+@megastructure_unique_t2_3_adjacency_bonus = 3
+@megastructure_unique_t3_3_adjacency_bonus = 4.5
+ #non-restricted resource building variables
+@non_restricted_t1_output = 2
+@non_restricted_t2_output = 3
+@non_restricted_t3_output = 4
+@non_restricted_t4_output = 5
+@non_restricted_t5_output = 6
+@non_restricted_t5_capital_tile_resource_mult = 0.03
+@non_restricted_t1_time = 210
+@non_restricted_t2_time = 180
+@non_restricted_t3_time = 180
+@non_restricted_t4_time = 180
+@non_restricted_t5_time = 180
+@non_restricted_t1_cost = 40
+@non_restricted_t2_cost = 80
+@non_restricted_t3_cost = 120
+@non_restricted_t4_cost = 160
+@non_restricted_t5_cost = 200
+@economic_district_upkeep_1 = 0.8
+@economic_district_upkeep_2 = 1.2
+@economic_district_upkeep_3 = 1.6
+@economic_district_upkeep_4 = 2
+@economic_district_upkeep_5 = 2.4
+@manufacturing_complex_upkeep_1 = 0.8
+@manufacturing_complex_upkeep_2 = 1.2
+@manufacturing_complex_upkeep_3 = 1.6
+@manufacturing_complex_upkeep_4 = 2
+@manufacturing_complex_upkeep_5 = 2.4
+@hydroponic_farm_upkeep_1 = 0.4
+@hydroponic_farm_upkeep_2 = 0.6
+@hydroponic_farm_upkeep_3 = 0.8
+@hydroponic_farm_upkeep_4 = 1
+@hydroponic_farm_upkeep_5 = 1.2
+@sociological_campus_upkeep_1 = 0.4
+@sociological_campus_upkeep_2 = 0.6
+@sociological_campus_upkeep_3 = 0.8
+@sociological_campus_upkeep_4 = 1
+@sociological_campus_upkeep_5 = 1.2
+@physics_campus_upkeep_1 = 0.4
+@physics_campus_upkeep_2 = 0.6
+@physics_campus_upkeep_3 = 0.8
+@physics_campus_upkeep_4 = 1
+@physics_campus_upkeep_5 = 1.2
+@engineering_campus_upkeep_1 = 0.4
+@engineering_campus_upkeep_2 = 0.6
+@engineering_campus_upkeep_3 = 0.8
+@engineering_campus_upkeep_4 = 1
+@engineering_campus_upkeep_5 = 1.2
+ #planet unique buildings
+@hyperstorage_t1_adjacency_bonus = 0.75
+@hyperstorage_t2_adjacency_bonus = 1.5
+@hyperstorage_t3_adjacency_bonus = 2.25

@@ -1,0 +1,251 @@
+ # This file was created by script!
+ # Instead of editing it, you should change the python script.
+ # Changes to the file will be overwritten the next time the script is run.
+ #this = planet
+ #prev = tile
+ #owner = country.
+ #Check if any building of the type is available, including tech requ check. Can be left empty if there are non-unique buildings without tech requ in the category.
+ ### Adj. building effects
+energy_adjacency_any_building_available = {
+	OR = {
+		has_capital_building = no  #in case there is no capital building on the planet, can always build t0 capital.
+		AND = {
+			NOR = {
+				has_building = building_hyperstorage_facility_1
+				has_building = building_hyperstorage_facility_2
+				has_building = building_hyperstorage_facility_3
+			}
+			OR = {
+				has_capital_1 = yes
+				has_capital_2 = yes
+				has_capital_3 = yes
+				has_hab_capital = yes
+			}
+			owner = {
+				has_technology = "tech_hyperstorage_1"
+				OR = { minerals = @planet_unique_cost_1 minerals > @planet_unique_cost_1 }
+			}
+		}
+		energy_adjacency_any_building_available_alphamod = yes
+		energy_adjacency_any_building_available_eutab = yes
+		energy_adjacency_any_building_available_gse = yes
+		energy_adjacency_any_building_available_est = yes
+		energy_adjacency_any_building_available_gwen = yes
+		energy_adjacency_any_building_available_tycoon = yes
+		energy_adjacency_any_building_available_ab = yes
+		energy_adjacency_any_building_available_cgm_planets = yes
+		energy_adjacency_any_building_available_expstr = yes
+		energy_adjacency_any_building_available_cgmvc_submod = yes
+	}
+}
+minerals_adjacency_any_building_available = {
+	OR = {
+		has_capital_building = no  #in case there is no capital building on the planet, can always build t0 capital.
+		AND = {
+			NOR = {
+				has_building = building_hyperstorage_facility_1
+				has_building = building_hyperstorage_facility_2
+				has_building = building_hyperstorage_facility_3
+			}
+			OR = {
+				has_capital_1 = yes
+				has_capital_2 = yes
+				has_capital_3 = yes
+				has_hab_capital = yes
+			}
+			owner = {
+				has_technology = "tech_hyperstorage_1"
+				OR = { minerals = @planet_unique_cost_1 minerals > @planet_unique_cost_1 }
+			}
+		}
+		minerals_adjacency_any_building_available_alphamod = yes
+		minerals_adjacency_any_building_available_eutab = yes
+		minerals_adjacency_any_building_available_legw = yes
+		minerals_adjacency_any_building_available_est = yes
+		minerals_adjacency_any_building_available_gwen = yes
+		minerals_adjacency_any_building_available_tycoon = yes
+		minerals_adjacency_any_building_available_ab = yes
+		minerals_adjacency_any_building_available_gse = yes
+		minerals_adjacency_any_building_available_cgmvc_submod = yes
+		minerals_adjacency_any_building_available_cgm_planets = yes
+	}
+}
+food_adjacency_any_building_available = {
+	OR = {
+		has_capital_building = no  #in case there is no capital building on the planet, can always build t0 capital.
+		AND = {
+			NOR = {
+				has_building = building_hyperstorage_facility_1
+				has_building = building_hyperstorage_facility_2
+				has_building = building_hyperstorage_facility_3
+			}
+			OR = {
+				has_capital_1 = yes
+				has_capital_2 = yes
+				has_capital_3 = yes
+				has_hab_capital = yes
+			}
+			owner = {
+				has_technology = "tech_hyperstorage_1"
+				OR = { minerals = @planet_unique_cost_1 minerals > @planet_unique_cost_1 }
+			}
+		}
+		food_adjacency_any_building_available_alphamod = yes
+		food_adjacency_any_building_available_esc = yes
+		food_adjacency_any_building_available_co = yes
+		food_adjacency_any_building_available_gwen = yes
+		food_adjacency_any_building_available_ab = yes
+		food_adjacency_any_building_available_eutab = yes
+		food_adjacency_any_building_available_gse = yes
+		food_adjacency_any_building_available_sfac = yes
+		food_adjacency_any_building_available_cgmvc_submod = yes
+		food_adjacency_any_building_available_cgm_planets = yes
+	}
+}
+society_research_adjacency_any_building_available = {
+	OR = {
+		has_capital_building = no
+		society_research_adjacency_any_building_available_alphamod = yes
+		society_research_adjacency_any_building_available_eutab = yes
+		society_research_adjacency_any_building_available_co = yes
+		society_research_adjacency_any_building_available_esap = yes
+		society_research_adjacency_any_building_available_est = yes
+		society_research_adjacency_any_building_available_gwen = yes
+		society_research_adjacency_any_building_available_mem = yes
+		society_research_adjacency_any_building_available_sfac = yes
+		society_research_adjacency_any_building_available_cgm_planets = yes
+	}
+}
+physics_research_adjacency_any_building_available = {
+	OR = {
+		has_capital_building = no
+		physics_research_adjacency_any_building_available_alphamod = yes
+		physics_research_adjacency_any_building_available_eutab = yes
+		physics_research_adjacency_any_building_available_legw = yes
+		physics_research_adjacency_any_building_available_co = yes
+		physics_research_adjacency_any_building_available_esap = yes
+		physics_research_adjacency_any_building_available_gwen = yes
+		physics_research_adjacency_any_building_available_mem = yes
+		physics_research_adjacency_any_building_available_sfac = yes
+		physics_research_adjacency_any_building_available_cgm_planets = yes
+	}
+}
+engineering_research_adjacency_any_building_available = {
+	OR = {
+		has_capital_building = no
+		engineering_research_adjacency_any_building_available_alphamod = yes
+		engineering_research_adjacency_any_building_available_eutab = yes
+		engineering_research_adjacency_any_building_available_co = yes
+		engineering_research_adjacency_any_building_available_esap = yes
+		engineering_research_adjacency_any_building_available_gwen = yes
+		engineering_research_adjacency_any_building_available_mem = yes
+		engineering_research_adjacency_any_building_available_sfac = yes
+		engineering_research_adjacency_any_building_available_cgm_planets = yes
+	}
+}
+food_any_building_available = {
+	owner = {
+		OR = {
+			is_food_delimited = no
+			AND = {
+				new_building_content_enabled = yes
+				has_technology = "tech_biofuel_refining_1"
+				prevprev = {
+					has_resource = { type = food amount > 0 }
+				}
+			}
+		}
+	}
+	food_any_building_available_API = yes
+}
+energy_any_building_available = { energy_any_building_available_API = yes }
+minerals_any_building_available = { minerals_any_building_available_API = yes }
+society_research_any_building_available = { society_research_any_building_available_API = yes }
+physics_research_any_building_available = { physics_research_any_building_available_API = yes }
+engineering_research_any_building_available = { engineering_research_any_building_available_API = yes }
+special_resource_any_building_available = {
+	OR = {
+		AND = {
+			has_resource = { type = sr_betharian amount > 0 }
+			owner = { has_technology = "tech_mine_betharian" }
+			planet_is_not_virtual = yes
+			planet_has_betharian = yes
+			requires_capital_1 = yes
+			requires_betharian_stone = yes
+		}
+		AND = {
+			has_resource = { type = sr_alien_pets amount > 0 }
+			owner = { has_technology = "tech_alien_life_studies" }
+			planet_is_not_virtual = yes
+			conditions_xeno_zoo = yes
+			requires_capital_1 = yes
+			requires_alien_pets = yes
+		}
+		AND = {
+			has_resource = { type = sr_alien_pets amount > 0 }
+			owner = { has_technology = "tech_alien_life_studies" }
+			planet_is_not_virtual = yes
+			conditions_animal_evaluation_laboratory = yes
+			requires_capital_1 = yes
+			requires_alien_pets = yes
+		}
+		AND = {
+			has_resource = { type = sr_megastructure_node amount = 1 }
+			new_building_content_enabled = yes
+			conditions_megastructure_restricted_t1_1 = yes
+			requires_megastructure_node_tile = yes
+			requires_capital_1_or_hab = yes
+		}
+		AND = {
+			has_resource = { type = sr_megastructure_node amount = 2 }
+			new_building_content_enabled = yes
+			conditions_megastructure_restricted_t1_2 = yes
+			requires_megastructure_node_tile = yes
+			requires_capital_1_or_hab = yes
+		}
+		AND = {
+			has_resource = { type = sr_megastructure_node amount = 3 }
+			new_building_content_enabled = yes
+			conditions_megastructure_restricted_t1_3 = yes
+			requires_megastructure_node_tile = yes
+			requires_capital_1_or_hab = yes
+		}
+		AND = {
+			has_resource = { type = sr_megastructure_node amount = 1 }
+			new_building_content_enabled = yes
+			conditions_megastructure_restricted_t1_1 = yes
+			owner_is_machine_empire = no
+			requires_megastructure_node_tile = yes
+			requires_capital_1_or_hab = yes
+		}
+		AND = {
+			has_resource = { type = sr_megastructure_node amount = 2 }
+			new_building_content_enabled = yes
+			conditions_megastructure_restricted_t1_2 = yes
+			owner_is_machine_empire = no
+			requires_megastructure_node_tile = yes
+			requires_capital_1_or_hab = yes
+		}
+		AND = {
+			has_resource = { type = sr_megastructure_node amount = 3 }
+			new_building_content_enabled = yes
+			conditions_megastructure_restricted_t1_3 = yes
+			owner_is_machine_empire = no
+			requires_megastructure_node_tile = yes
+			requires_capital_1_or_hab = yes
+		}
+		special_resource_any_building_available_gwen = yes
+		special_resource_any_building_available_zenith = yes
+		special_resource_any_building_available_alphamod = yes
+		special_resource_any_building_available_eac = yes
+		special_resource_any_building_available_ag = yes
+		special_resource_any_building_available_co = yes
+		special_resource_any_building_available_est = yes
+		special_resource_any_building_available_tycoon = yes
+		special_resource_any_building_available_apsr = yes
+		special_resource_any_building_available_pd = yes
+		special_resource_any_building_available_stexp = yes
+		special_resource_any_building_available_sfac = yes
+		special_resource_any_building_available_cgm_planets = yes
+	}
+}

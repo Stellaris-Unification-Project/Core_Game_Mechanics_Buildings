@@ -1,0 +1,407 @@
+namespace = cgm_ai_routines
+ #this event is fired on a monthly pulse but only once.
+ #it stores data regarding number of hyperlane connections in every system, so this number can be used later
+ #set default reserve and income for first month
+event = {
+	 #game start or mod install
+	id = cgm_ai_routines.0
+	hide_window = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		NOT = { has_global_flag = cgm_ai_routines_0_done }
+	}
+	immediate = {
+		set_global_flag = cgm_ai_routines_0_done
+		check_imbalanced_difficulty_bonuses = yes
+		set_global_flag = cgm_game_start
+		set_timed_global_flag = { flag = cgm_game_start_timed days = 31 }
+		set_global_flag = new_building_content_active
+		set_global_flag = overhauled_building_stats_active
+		set_global_flag = direct_build_enabled
+		every_playable_country = {
+			limit = { is_ai = no }
+			set_country_flag = cgm_disable_autobuild
+			set_variable = { which = cgm_building_construction_percent value = 20 }  #not used initially, but just to have a default value.
+			set_country_flag = cgm_player_focus_as_ai
+		}
+		every_system = {
+			system_star = {
+				set_variable = { which = num_of_hyperlane_connections value = 0 }
+				save_event_target_as = hyperlane_check_star
+				set_planet_flag = system_variable_repository
+			}
+			every_neighbor_system = {
+				ignore_hyperlanes = no
+				event_target:hyperlane_check_star = {
+					change_variable = { which = num_of_hyperlane_connections value = 1 }
+				}
+			}
+		}
+		random_planet = { save_global_event_target_as = cgm_var_storage }
+	}
+}
+ #set country flags for new empires
+country_event = {
+	id = cgm_ai_routines.7
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		if = {
+			limit = { is_ai = yes }
+			if = {
+				limit = { has_global_flag = cgm_disable_autobuild }
+				set_country_flag = cgm_disable_autobuild
+			}
+			if = {
+				limit = { has_global_flag = cgm_disable_vanilla_building_AI }
+				set_country_flag = cgm_disable_vanilla_building_AI
+			}
+		}
+	}
+}
+event = {
+	id = cgm_ai_routines.8
+	fire_only_once = yes
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = { NOT = { has_global_flag = cgm_ai_routines_update_active } }
+	immediate = { 
+		set_global_flag = cgm_ai_routines_update_active 
+		set_global_flag = cgm_first_time_main_menu 
+	}
+}
+event = {
+	id = cgm_ai_routines.6
+	fire_only_once = yes
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = { NOT = { has_global_flag = cgm_ai_routines_update_active } }
+	immediate = {
+		every_country = {
+			limit = { is_ai = no }
+			country_event = { id = cgm_ai_routines.9 }
+			break = yes
+		}
+	}
+}
+country_event = {
+	id = cgm_ai_routines.9
+	fire_only_once = yes
+	is_triggered_only = yes
+	title = cgm_beta_updated.title
+	desc = cgm_beta_updated.desc
+	diplomatic = yes
+	custom_gui = "cgm_main_menu"
+	force_open = yes
+	picture_event_data = { room = cgm_menu_room }
+	trigger = { NOT = { has_global_flag = cgm_ai_routines_update_active } }
+	immediate = {
+		set_global_flag = cgm_ai_routines_update_active
+		set_global_flag = direct_build_enabled
+		set_global_flag = cgm_disable_vanilla_building_AI
+		set_global_flag = cgm_first_time_main_menu 
+		every_playable_country = {
+			limit = { is_ai = yes }
+			set_country_flag = cgm_disable_vanilla_building_AI
+		}
+	}
+	option = {
+		name = cgm_beta_updated_configure_button.name
+		custom_gui = "cgm_option"
+		hidden_effect = { country_event = { id = core_game_mechanics_and_ai_base.1 } }
+	}
+	option = { name = OK custom_gui = "cgm_option" }
+}
+event = {
+	id = cgm_ai_routines.1
+	hide_window = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = { NOT = { has_global_flag = cgm_first_month_passed } }
+	immediate = {
+		set_global_flag = cgm_first_month_passed  #is triggered at the beginning of the second month
+		if = {
+			limit = { NOT = { has_global_flag = cgm_game_start } }
+			every_system = {
+				system_star = {
+					set_variable = { which = num_of_hyperlane_connections value = 0 }
+					save_event_target_as = hyperlane_check_star
+					set_planet_flag = system_variable_repository
+				}
+				every_neighbor_system = {
+					ignore_hyperlanes = no
+					event_target:hyperlane_check_star = {
+						change_variable = { which = num_of_hyperlane_connections value = 1 }
+					}
+				}
+			}
+			random_planet = { save_global_event_target_as = cgm_var_storage }
+		}
+	}
+}
+@spending_threshold = 99
+ ### we should move the spending threshold into a per country variable, so the amount is dynamically calculated given some factors rather than a static sum.
+ ### I also did not create different settings for the building construction reserve subtraction. We should decide how to implement this with policies for players.
+ ### Currently it subtracts a flat 20% of the minerals income variable value from the minerals reserve pool.
+event = {
+	id = cgm_ai_routines.2
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = { }  #disable moved to country level!
+	immediate = {
+		if = {
+			limit = { NOT = { has_global_flag = cgm_game_start_timed } }
+			every_country = {
+				limit = {
+					OR = {
+						is_country_type = default
+						is_country_type = ascended_empire
+						is_country_type = awakened_fallen_empire
+					}
+				}
+				 #update WEIGHTS (used for both vanilla AI and automated construction!)
+				check_income = yes
+				if = {
+					limit = { NOT = { has_country_flag = cgm_empire_weights_computed_timed } }
+					country_event = { id = cgm_auto.30 }
+				}
+				if = {
+					limit = { NOT = { has_country_flag = starbase_and_planet_check_delay } }
+					check_and_set_starbase_flags = yes
+					check_and_set_building_flags = yes
+					set_timed_country_flag = { flag = starbase_and_planet_check_delay days = 360 }
+				}
+				set_variable = { which = reserve_transport value = 0 }
+				 #used to find suitable planets and for AI percentage:
+				cgm_every_planet_free_pops_count_and_size_check = yes
+				 #actual autobuild:
+				if = {
+					limit = { NOT = { has_country_flag = cgm_disable_autobuild } }
+					if = {
+						limit = { is_ai = no }
+						set_variable = { which = cgm_building_construction_fraction value = cgm_building_construction_percent }
+						divide_variable = { which = cgm_building_construction_fraction value = 100 }
+					}
+					else = {
+						set_variable = { which = cgm_relative_free_pops value = cgm_free_pops }
+						divide_variable = { which = cgm_relative_free_pops value = cgm_non_filled_planet_count }
+						if = {
+							limit = {
+								check_variable = { which = cgm_free_pops value = 0 }
+							}
+							set_variable = { which = cgm_building_construction_fraction value = 0 }
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = cgm_relative_free_pops value < 1.05 }
+								}
+								set_variable = { which = cgm_building_construction_fraction value = 0.2 }
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = cgm_relative_free_pops value < 1.5 }
+									}
+									set_variable = { which = cgm_building_construction_fraction value = 0.3 }
+								}
+								else = {
+									if = {
+										limit = {
+											check_variable = { which = cgm_relative_free_pops value < 2 }
+										}
+										set_variable = { which = cgm_building_construction_fraction value = 0.4 }
+									}
+									else = {
+										if = {
+											limit = {
+												check_variable = { which = cgm_relative_free_pops value < 3 }
+											}
+											set_variable = { which = cgm_building_construction_fraction value = 0.5 }
+										}
+										else = {
+											set_variable = { which = cgm_building_construction_fraction value = 0.6 }
+										}
+									}
+								}
+							}
+						}
+						if = {
+							limit = { is_at_war = yes }
+							multiply_variable = { which = cgm_building_construction_fraction value = 0.33 }
+						}
+						if = { #stop AI from piling up huge amounts of minerals, just because they are unable to build stuff fast enough. Those are left-overs after an automated construction run
+							limit = { check_variable = { which = building_construction_reserve value > 500 } }
+							multiply_variable = { which = cgm_building_construction_fraction value = 0.5 }
+						}
+						if = { #stop AI from piling up huge amounts of minerals, just because they are unable to build stuff fast enough. Those are left-overs after an automated construction run
+							limit = { check_variable = { which = building_construction_reserve value > 1000 } }
+							multiply_variable = { which = cgm_building_construction_fraction value = 0.2 }
+						}
+					}
+					if = { #stop everybody from piling up extremely huge amounts. If you'd go beyond this point, you might break the temporary modifier that gives more storage space and minerals could be lost.
+						limit = { check_variable = { which = building_construction_reserve value < 50000 } }
+						if = {
+							limit = {
+								check_variable = { which = minerals_reserve value > 0 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = minerals_income value > 0 }
+								}
+								set_variable = { which = reserve_transport value = minerals_income }
+								multiply_variable = { which = reserve_transport value = cgm_building_construction_fraction }
+							}
+							else = {
+								set_variable = { which = cgm_tmp value = minerals_income }
+								multiply_variable = { which = cgm_tmp value = -1 }
+								set_variable = { which = cgm_months_to_starvation value = minerals_reserve }
+								divide_variable = { which = cgm_months_to_starvation value = minerals_income }
+								if = {
+									limit = {
+										check_variable = { which = cgm_months_to_starvation value > 20 }
+									}
+									set_variable = { which = reserve_transport value = minerals_reserve }
+									multiply_variable = { which = reserve_transport value = cgm_building_construction_fraction }
+								}
+							}
+						}
+						if = {
+							limit = {
+								check_variable = { which = reserve_transport value > 0 }
+								check_variable = { which = minerals_reserve value > reserve_transport }
+							}
+							change_variable = { which = building_construction_reserve value = reserve_transport }
+							while = {
+								limit = {
+									check_variable = { which = reserve_transport value > 2047.999 }
+								}
+								add_minerals = -2048
+								change_variable = { which = reserve_transport value = -2048 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = reserve_transport value > 1023.999 }
+								}
+								add_minerals = -1024
+								change_variable = { which = reserve_transport value = -1024 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = reserve_transport value > 511.999 }
+								}
+								add_minerals = -512
+								change_variable = { which = reserve_transport value = -512 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = reserve_transport value > 255.999 }
+								}
+								add_minerals = -256
+								change_variable = { which = reserve_transport value = -256 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = reserve_transport value > 127.999 }
+								}
+								add_minerals = -128
+								change_variable = { which = reserve_transport value = -128 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = reserve_transport value > 63.999 }
+								}
+								add_minerals = -64
+								change_variable = { which = reserve_transport value = -64 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = reserve_transport value > 31.999 }
+								}
+								add_minerals = -32
+								change_variable = { which = reserve_transport value = -32 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = reserve_transport value > 15.999 }
+								}
+								add_minerals = -16
+								change_variable = { which = reserve_transport value = -16 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = reserve_transport value > 7.999 }
+								}
+								add_minerals = -8
+								change_variable = { which = reserve_transport value = -8 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = reserve_transport value > 3.999 }
+								}
+								add_minerals = -4
+								change_variable = { which = reserve_transport value = -4 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = reserve_transport value > 1.999 }
+								}
+								add_minerals = -2
+								change_variable = { which = reserve_transport value = -2 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = reserve_transport value > 0.999 }
+								}
+								add_minerals = -1
+								change_variable = { which = reserve_transport value = -1 }
+							}
+						}
+					}
+					set_country_flag = cgm_auto_built
+					set_variable = { which = building_construction_reserve_old value = -1 }
+					set_variable = { which = cgm_count_buildings value = 0 }
+					while = {
+						limit = {
+							check_variable = { which = building_construction_reserve value > @spending_threshold }
+							has_country_flag = cgm_auto_built  #stop if nothing was constructed anymore -> there seems to be nothing to do atm! possible TODO: return minerals?
+						}
+						change_variable = { which = cgm_count_buildings value = 1 }
+						if = {
+							limit = {
+								check_variable = { which = cgm_count_buildings value > 20 }
+								# NOT = { has_global_flag = cgm_instant_build_flag }
+								check_variable = { which = building_construction_reserve_old value = building_construction_reserve }
+							}
+							log = "Emergency break of cgm buildings automated construction for [this.GetName]. Possible infinite loop detected. Unless you have instant build active, please report this (on Steam or discord)."
+							break = yes
+						}
+						set_variable = { which = building_construction_reserve_old value = building_construction_reserve }
+						set_variable = { which = minerals_reserve value = 0 }
+						count_minerals_reserve = yes
+						set_variable = { which = cgm_original_mineral_reserve value = minerals_reserve }
+						 #log = "starting stuff"
+						 #log = "cgm_original_mineral_reserve:[this.cgm_original_mineral_reserve]"
+						change_variable = { which = minerals_reserve value = building_construction_reserve }
+						 #log = "reserves+construction minerals:[this.minerals_reserve]"
+						add_modifier = { modifier = cgm_mineral_tmp_modifier days = 1}
+						restore_minerals_reserve = yes  #this now adds the construction reserve
+						 # log="start in ai routines"
+						country_event = { id = cgm_auto.0 }
+						 # log="back to ai routines"
+						set_variable = { which = minerals_reserve value = 0 }
+						count_minerals_reserve = yes
+						 #log = "minerals_reserve after construction:[this.minerals_reserve]"
+						set_variable = { which = building_construction_reserve value = minerals_reserve }
+						set_variable = { which = minerals_reserve value = cgm_original_mineral_reserve }
+						subtract_variable = { which = building_construction_reserve value = minerals_reserve }  # can become negative! I think we should allow this small cheating as it is hard to prevent
+						 #log = "remaining building_construction_reserve:[this.building_construction_reserve]"
+						restore_minerals_reserve = yes  #this removes leftover construction reserve
+						remove_modifier = cgm_mineral_tmp_modifier
+					}
+				}
+			}
+		}
+	}
+}

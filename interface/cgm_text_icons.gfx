@@ -1,0 +1,10 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_text_megastructure_node"
+		textureFile = "gfx/interface/icons/resources/sr_megastructure_node.dds"
+	}
+	spriteType = {
+		name = "GFX_text_cgm_buildings_logo"
+		textureFile = "gfx/interface/icons/cgm_buildings_settings.dds"
+	}		
+}
