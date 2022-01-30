@@ -384,7 +384,7 @@ slave_processing_ai_allow = {
 				has_resource = { type = engineering_research amount < 2 }
 			}
 			from = {
-				count_pops = {
+				count_owned_pop = {
 					limit = {
 						is_enslaved = no
 						is_being_purged = no
@@ -641,7 +641,7 @@ planet_unique_prerequisite = {
 					has_hab_capital = yes
 				}
 				OR = {
-					owner = { NOT = { has_swapped_tradition = tr_synchronicity_cyber_comms } }
+					owner = { NOT = { has_active_tradition = tr_synchronicity_cyber_comms } }
 					NOT = { any_owned_pop = { has_trait = trait_cybernetic } }
 					has_building = building_neuro_electric_amplifier
 				}
@@ -689,7 +689,7 @@ pop_growth_building_conditions = {
 		}
 		free_pop_tiles > 2
 		OR = {
-			any_owned_pop = { is_robot_pop = no has_population_control = no }
+			any_owned_pop = { is_robot_pop = no has_population_control = { value = no country = prev.owner } }
 			AND = {
 				owner = {
 					OR = { has_authority = auth_machine_intelligence has_country_flag = synthethic_age }

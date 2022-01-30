@@ -485,7 +485,7 @@ building_slave_processing = {
 		modifier = {
 			weight = 25
 			from = {
-				count_pops = {
+				count_owned_pop = {
 					limit = { is_enslaved = yes }
 					count > 2
 				}
@@ -494,7 +494,7 @@ building_slave_processing = {
 		modifier = {
 			weight = 100
 			from = {
-				count_pops = {
+				count_owned_pop = {
 					limit = { is_enslaved = yes }
 					count > 5
 				}
@@ -531,7 +531,7 @@ building_neuro_electric_amplifier = {
 		modifier = {
 			weight = 25
 			from = {
-				count_pops = {
+				count_owned_pop = {
 					limit = { has_trait = trait_cybernetic }
 					count > 2
 				}
@@ -540,7 +540,7 @@ building_neuro_electric_amplifier = {
 		modifier = {
 			weight = 100
 			from = {
-				count_pops = {
+				count_owned_pop = {
 					limit = { has_trait = trait_cybernetic }
 					count > 5
 				}

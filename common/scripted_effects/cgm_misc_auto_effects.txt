@@ -38,16 +38,14 @@ cgm_every_planet_free_pops_count_and_size_check = {
 			}
 		}
 		prev = {
-			change_variable = { which = cgm_free_pops value = prev }
+			change_variable = { which = cgm_free_pops value = prev.cgm_free_pops }
 		}
 		switch = {
 			trigger = planet_size
 			5 = {
 				if = {
 					limit = {
-						NOT = {
-							check_variable = { which = cgm_planet_size value = 5 }
-						}
+						check_variable = { which = cgm_planet_size value != 5 }
 					}
 					set_planet_flag = cgm_redo_planet_calc
 					set_variable = { which = cgm_planet_size value = 5 }
@@ -56,9 +54,7 @@ cgm_every_planet_free_pops_count_and_size_check = {
 			6 = {
 				if = {
 					limit = {
-						NOT = {
-							check_variable = { which = cgm_planet_size value = 6 }
-						}
+						check_variable = { which = cgm_planet_size value != 6 }
 					}
 					set_planet_flag = cgm_redo_planet_calc
 					set_variable = { which = cgm_planet_size value = 6 }
@@ -67,9 +63,7 @@ cgm_every_planet_free_pops_count_and_size_check = {
 			7 = {
 				if = {
 					limit = {
-						NOT = {
-							check_variable = { which = cgm_planet_size value = 7 }
-						}
+						check_variable = { which = cgm_planet_size value != 7 }
 					}
 					set_planet_flag = cgm_redo_planet_calc
 					set_variable = { which = cgm_planet_size value = 7 }
@@ -78,9 +72,7 @@ cgm_every_planet_free_pops_count_and_size_check = {
 			8 = {
 				if = {
 					limit = {
-						NOT = {
-							check_variable = { which = cgm_planet_size value = 8 }
-						}
+						check_variable = { which = cgm_planet_size value != 8 }
 					}
 					set_planet_flag = cgm_redo_planet_calc
 					set_variable = { which = cgm_planet_size value = 8 }
@@ -89,9 +81,7 @@ cgm_every_planet_free_pops_count_and_size_check = {
 			9 = {
 				if = {
 					limit = {
-						NOT = {
-							check_variable = { which = cgm_planet_size value = 9 }
-						}
+						check_variable = { which = cgm_planet_size value != 9 }
 					}
 					set_planet_flag = cgm_redo_planet_calc
 					set_variable = { which = cgm_planet_size value = 9 }

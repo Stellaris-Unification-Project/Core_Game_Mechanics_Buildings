@@ -1380,7 +1380,7 @@ building_hydroponic_farm_1 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -1459,7 +1459,7 @@ building_hydroponic_farm_2_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -1499,7 +1499,7 @@ building_hydroponic_farm_2 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -1547,7 +1547,7 @@ building_hydroponic_farm_3_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -1587,7 +1587,7 @@ building_hydroponic_farm_3 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -1635,7 +1635,7 @@ building_hydroponic_farm_4_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -1675,7 +1675,7 @@ building_hydroponic_farm_4 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -1716,7 +1716,7 @@ building_hydroponic_farm_5_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -1760,7 +1760,7 @@ building_hydroponic_farm_5 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -4265,7 +4265,7 @@ building_farming_complex_1_1 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -4350,7 +4350,7 @@ building_farming_complex_2_1_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -4389,7 +4389,7 @@ building_farming_complex_2_1 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -4430,7 +4430,7 @@ building_farming_complex_3_1_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -4469,7 +4469,7 @@ building_farming_complex_3_1 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -4510,7 +4510,7 @@ building_farming_complex_4_1_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -4549,7 +4549,7 @@ building_farming_complex_4_1 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -4581,7 +4581,7 @@ building_farming_complex_5_1_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -4623,7 +4623,7 @@ building_farming_complex_5_1 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -4670,7 +4670,7 @@ building_farming_complex_1_2 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -4755,7 +4755,7 @@ building_farming_complex_2_2_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -4794,7 +4794,7 @@ building_farming_complex_2_2 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -4835,7 +4835,7 @@ building_farming_complex_3_2_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -4874,7 +4874,7 @@ building_farming_complex_3_2 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -4915,7 +4915,7 @@ building_farming_complex_4_2_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -4954,7 +4954,7 @@ building_farming_complex_4_2 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -4986,7 +4986,7 @@ building_farming_complex_5_2_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5028,7 +5028,7 @@ building_farming_complex_5_2 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5075,7 +5075,7 @@ building_farming_complex_1_3 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5160,7 +5160,7 @@ building_farming_complex_2_3_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5199,7 +5199,7 @@ building_farming_complex_2_3 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5240,7 +5240,7 @@ building_farming_complex_3_3_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5279,7 +5279,7 @@ building_farming_complex_3_3 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5320,7 +5320,7 @@ building_farming_complex_4_3_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5359,7 +5359,7 @@ building_farming_complex_4_3 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5391,7 +5391,7 @@ building_farming_complex_5_3_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5433,7 +5433,7 @@ building_farming_complex_5_3 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5480,7 +5480,7 @@ building_farming_complex_1_4 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5565,7 +5565,7 @@ building_farming_complex_2_4_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5604,7 +5604,7 @@ building_farming_complex_2_4 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5645,7 +5645,7 @@ building_farming_complex_3_4_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5684,7 +5684,7 @@ building_farming_complex_3_4 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5725,7 +5725,7 @@ building_farming_complex_4_4_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5764,7 +5764,7 @@ building_farming_complex_4_4 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5796,7 +5796,7 @@ building_farming_complex_5_4_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5838,7 +5838,7 @@ building_farming_complex_5_4 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5885,7 +5885,7 @@ building_farming_complex_1_5 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -5970,7 +5970,7 @@ building_farming_complex_2_5_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -6009,7 +6009,7 @@ building_farming_complex_2_5 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -6050,7 +6050,7 @@ building_farming_complex_3_5_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -6089,7 +6089,7 @@ building_farming_complex_3_5 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -6130,7 +6130,7 @@ building_farming_complex_4_5_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -6169,7 +6169,7 @@ building_farming_complex_4_5 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -6201,7 +6201,7 @@ building_farming_complex_5_5_direct_build = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}
@@ -6243,7 +6243,7 @@ building_farming_complex_5_5 = {
 			resources = { unity = 1 }
 		}
 		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
+			has_active_tradition = tr_adaptability_finish
 			resources = { minerals = 1 }
 		}
 	}

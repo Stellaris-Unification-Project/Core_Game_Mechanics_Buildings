@@ -4,7 +4,7 @@ country_event = {
 	hide_window = yes
 	is_triggered_only = yes
 	immediate = {
-		every_planet = {
+		every_system_planet = {
 			limit = {
 				OR = { is_colonizable = yes is_colony = yes }
 			}
@@ -774,7 +774,7 @@ country_event = {
 	trigger = {
 		new_building_content_enabled = yes
 		fromfrom = {
-			any_planet = {
+			any_system_planet = {
 				OR = {
 					is_habitat = yes
 					is_ringworld = yes

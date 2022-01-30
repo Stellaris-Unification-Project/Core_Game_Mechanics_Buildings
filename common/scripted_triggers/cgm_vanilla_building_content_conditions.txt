@@ -89,7 +89,7 @@ conditions_capital_1 = {
 	owner = { is_machine_empire = no }
 	planet = {
 		is_habitat = no
-		count_pops = {
+		count_owned_pop = {
 			count > 4
 			limit = { is_colony_pop = yes }
 		}
@@ -99,7 +99,7 @@ conditions_machine_capital_1 = {
 	owner = { is_machine_empire = yes }
 	planet = {
 		is_habitat = no
-		count_pops = {
+		count_owned_pop = {
 			count > 4
 			limit = { is_colony_pop = yes }
 		}
@@ -128,7 +128,7 @@ conditions_akx_worm_1 = {
 	}
 }
 conditions_neuro_electric_amplifier = {
-	owner = { has_swapped_tradition = tr_synchronicity_cyber_comms }
+	owner = { has_active_tradition = tr_synchronicity_cyber_comms }
 	planet = { any_owned_pop = { has_trait = trait_cybernetic } }
 }
  # Military Buildings
@@ -171,10 +171,8 @@ conditions_guardian_dragon_shrine = {
 	owner = {
 		has_country_flag = dragon_slayer
 		OR = {
-			has_ethic = ethic_spiritualist
-			has_ethic = ethic_fanatic_spiritualist
-			has_ethic = ethic_xenophile
-			has_ethic = ethic_fanatic_xenophile
+			is_spiritualist = yes
+			is_xenophile = yes
 		}
 	}
 }
@@ -183,10 +181,8 @@ conditions_guardian_dragon_monument = {
 	owner = {
 		has_country_flag = dragon_slayer
 		NOR = {
-			has_ethic = ethic_spiritualist
-			has_ethic = ethic_fanatic_spiritualist
-			has_ethic = ethic_xenophile
-			has_ethic = ethic_fanatic_xenophile
+			is_spiritualist = yes
+			is_xenophile = yes
 		}
 	}
 }
@@ -232,10 +228,8 @@ destroy_if_conditions_guardian_dragon_shrine = {
 		OR = {
 			NOT = { has_country_flag = dragon_slayer }
 			NOR = {
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_spiritualist
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
+				is_spiritualist = yes
+				is_xenophile = yes
 			}
 		}
 	}
@@ -245,10 +239,8 @@ destroy_if_conditions_guardian_dragon_monument = {
 	owner = {
 		OR = {
 			NOT = { has_country_flag = dragon_slayer }
-			has_ethic = ethic_spiritualist
-			has_ethic = ethic_fanatic_spiritualist
-			has_ethic = ethic_xenophile
-			has_ethic = ethic_fanatic_xenophile
+			is_spiritualist = yes
+			is_xenophile = yes
 		}
 	}
 }
@@ -289,7 +281,7 @@ destroy_if_conditions_neuro_electric_amplifier = {
 		NAND = {
 			has_authority = auth_machine_intelligence
 			has_government = gov_machine_assimilator
-			has_swapped_tradition = tr_synchronicity_cyber_comms
+			has_active_tradition = tr_synchronicity_cyber_comms
 		}
 	}
 }

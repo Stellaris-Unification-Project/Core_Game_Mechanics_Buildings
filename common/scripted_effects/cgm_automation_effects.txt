@@ -116,10 +116,10 @@ cgm_search_for_special_building = {
 	}
 	if = {
 		limit = {
-			check_variable = { which = cgm_special_bestWeight value > prev }
+			check_variable = { which = cgm_special_bestWeight value > prev.cgm_special_bestWeight }
 		}
 		prev = {
-			set_variable = { which = cgm_special_bestWeight value = prev }
+			set_variable = { which = cgm_special_bestWeight value = prev.cgm_special_bestWeight }
 			set_variable = { which = cgm_special_bestBuilding value = 1 }
 		}
 		save_event_target_as = cgm_best_planet_for_special
@@ -192,10 +192,8 @@ cgm_search_for_special_building = {
 				prev = {
 					has_country_flag = dragon_slayer
 					OR = {
-						has_ethic = ethic_spiritualist
-						has_ethic = ethic_fanatic_spiritualist
-						has_ethic = ethic_xenophile
-						has_ethic = ethic_fanatic_xenophile
+						is_spiritualist = yes
+						is_xenophile = yes
 					}
 					minerals > 1000
 					NOT = { any_owned_planet = { has_building = building_guardian_dragon_shrine } }
@@ -203,10 +201,8 @@ cgm_search_for_special_building = {
 				prev = {
 					has_country_flag = dragon_slayer
 					NOR = {
-						has_ethic = ethic_spiritualist
-						has_ethic = ethic_fanatic_spiritualist
-						has_ethic = ethic_xenophile
-						has_ethic = ethic_fanatic_xenophile
+						is_spiritualist = yes
+						is_xenophile = yes
 					}
 					minerals > 1000
 					NOT = { any_owned_planet = { has_building = building_guardian_dragon_monument } }

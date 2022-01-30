@@ -175,7 +175,7 @@ check_and_set_building_flags = {
 				owner_is_machine_empire = yes
 				sector_controlled = no
 				 #NOR = { has_planet_flag = fortify_planet has_planet_flag = build_planetary_shield_generator has_planet_flag = build_war_factory has_building = building_war_factory }
-				count_pops = {
+				count_owned_pop = {
 					limit = {
 						is_colony_pop = yes
 						OR = {
@@ -206,7 +206,7 @@ check_and_set_building_flags = {
 				}
 				free_pop_tiles > 2
 				OR = {
-					any_owned_pop = { is_robot_pop = no has_population_control = no }
+					any_owned_pop = { is_robot_pop = no has_population_control = { value = no country = prev.owner } }
 					AND = {
 						owner = {
 							OR = { has_authority = auth_machine_intelligence has_country_flag = synthethic_age }
@@ -232,7 +232,7 @@ check_and_set_building_flags = {
 				}
 				any_owned_pop = { is_enslaved = yes }
 				OR = {
-					count_pops = {
+					count_owned_pop = {
 						limit = {
 							OR = {
 								has_slavery_type = { country = owner type = slavery_military }
@@ -253,9 +253,9 @@ check_and_set_building_flags = {
 				owner = {
 					has_authority = auth_machine_intelligence
 					has_government = gov_machine_assimilator
-					has_swapped_tradition = tr_synchronicity_cyber_comms
+					has_active_tradition = tr_synchronicity_cyber_comms
 				}
-				count_pops = {
+				count_owned_pop = {
 					limit = { has_trait = trait_cybernetic }
 					count > 3
 				}
@@ -287,7 +287,7 @@ check_and_set_building_flags = {
 					any_owned_planet = {
 						OR = {
 							unrest > 30
-							count_pops = {
+							count_owned_pop = {
 								limit = {
 									opposing_ethics_divergence = { steps > 1 who = owner }
 								}
@@ -339,10 +339,10 @@ check_and_set_starbase_flags = {
 			set_star_flag = core_sector_starbase_system
 		}
 		if = {
-			limit = { any_planet = { is_owned_by = prevprev } }
+			limit = { any_system_planet = { is_owned_by = prevprev } }
 			set_star_flag = colonized_system
 			if = {
-				limit = { any_planet = { is_capital = yes } }
+				limit = { is_capital_system = yes }
 				if = {
 					limit = { NOT = { has_star_flag = capital_system } }
 					set_star_flag = capital_system
@@ -370,7 +370,7 @@ check_and_set_starbase_flags = {
 						has_star_flag = enclave
 						any_ship_in_system = {
 							exists = owner
-							owner = { is_same_value = event_target:artist_enclave_country }
+							is_owned_by = event_target:artist_enclave_country
 						}
 						prev = { has_country_flag = art_college }
 					}
@@ -453,7 +453,7 @@ set_shipyard_weight = {
 				has_star_flag = shipyard_candidate_system
 				has_star_flag = shipyard_check_delay
 				star = { is_star_class = sc_black_hole }
-				any_planet = { is_planet_class = pc_pulsar }
+				any_system_planet = { is_planet_class = pc_pulsar }
 			}
 		}
 		if = {
@@ -489,7 +489,7 @@ set_shipyard_weight = {
 							has_star_flag = enclave
 							any_ship_in_system = {
 								exists = owner
-								owner = { is_same_value = event_target:artist_enclave_country }
+								is_owned_by = event_target:artist_enclave_country
 							}
 						}
 						AND = {
@@ -597,17 +597,17 @@ set_shipyard_weight = {
 			}
 			if = {
 				limit = {
-					any_planet = {
+					any_system_planet = {
 						is_colony = yes
 						exists = owner
-						owner = { is_same_value = prevprev }
+						is_owned_by = prevprev
 					}
 				}
 				every_system_planet = {
 					limit = {
 						is_colony = yes
 						exists = owner
-						owner = { is_same_value = prevprev }
+						is_owned_by = prevprev
 					}
 					event_target:starbase_system_star = {
 						change_variable = { which = shipyard_weight value = -1 }
@@ -618,9 +618,9 @@ set_shipyard_weight = {
 				ignore_hyperlanes = no
 				limit = {
 					is_within_borders_of = prevprev
-					any_planet = {
+					any_system_planet = {
 						exists = owner
-						owner = { is_same_value = prevprev }
+						is_owned_by = prevprev
 					}
 				}
 				event_target:starbase_system_star = {
@@ -677,7 +677,7 @@ check_and_assign_shipyard_system_flag = {
 			if = {
 				limit = {
 					NOR = {
-						any_planet = {
+						any_system_planet = {
 							check_variable = { which = shipyard_weight value > event_target:system_check_target }
 						}
 						has_star_flag = shipyard_system

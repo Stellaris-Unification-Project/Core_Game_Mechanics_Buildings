@@ -98,7 +98,7 @@ pop_event = {
 	is_triggered_only = yes
 	trigger = {
 		planet = {
-			any_pop = { NOT = { is_same_species = PREVPREV } }
+			any_owned_pop = { NOT = { is_same_species = PREVPREV } }
 		}
 	}
 	immediate = {

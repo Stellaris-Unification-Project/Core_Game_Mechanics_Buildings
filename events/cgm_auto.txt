@@ -104,11 +104,11 @@ country_event = {
 			}
 			if = {
 				limit = {
-					check_variable = { which = cgm_bestWeight_1 value > prev }
+					check_variable = { which = cgm_bestWeight_1 value > prev.cgm_bestWeight_1 }
 				}
 				save_event_target_as = cgm_best_planet
 				prev = {
-					set_variable = { which = cgm_bestWeight_1 value = prev }
+					set_variable = { which = cgm_bestWeight_1 value = prev.cgm_bestWeight_1 }
 				}
 			}
 		}

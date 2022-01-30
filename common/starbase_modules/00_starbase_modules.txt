@@ -170,7 +170,7 @@ trading_hub = {
 		}
 		modifier = {
 			hidden_trigger = { exists = this }
-			owner = { has_non_swapped_tradition = tr_prosperity_trans_stellar_corporations }
+			owner = { has_active_tradition = tr_prosperity_trans_stellar_corporations }
 			resources = { energy = 1 }
 		}
 		modifier = {
